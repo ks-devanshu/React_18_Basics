@@ -1,0 +1,12 @@
+.button-style {
+    background-color: red;
+    color: white;
+    font-size: 50px;
+    border: none;
+    border-radius: 1rem;
+    padding: 10px 30px;
+}
+
+.another-style {
+    box-shadow: 10px 10px 10px 10px greenyellow;
+}
