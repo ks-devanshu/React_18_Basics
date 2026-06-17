@@ -10,7 +10,9 @@
 // import Like from './components/Like'
 
 
-import ExpandableText from "./components/ExpandableText";
+// import ExpandableText from "./components/ExpandableText";
+
+import Form from "./components/Form";
 
 
 function App() {
@@ -64,8 +66,9 @@ function App() {
     {/* <Button></Button> */}
     {/* <Like handleClick={handleLikeClick}></Like> */}
 
-    <ExpandableText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse cupiditate delectus aut quae dolor nihil minima totam nulla sed in soluta assumenda quaerat placeat rerum fuga officiis corporis adipisci, non, quis magnam consectetur quod enim. Rerum nam ad earum? Totam illo odio fuga praesentium animi. Temporibus dignissimos labore voluptatem adipisci.</ExpandableText>
+    {/* <ExpandableText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse cupiditate delectus aut quae dolor nihil minima totam nulla sed in soluta assumenda quaerat placeat rerum fuga officiis corporis adipisci, non, quis magnam consectetur quod enim. Rerum nam ad earum? Totam illo odio fuga praesentium animi. Temporibus dignissimos labore voluptatem adipisci.</ExpandableText> */}
 
+    <Form></Form>
   </div>;
 }
 
