@@ -3,8 +3,7 @@ import ListGroup from "./components/ListGroup";
 import { useState } from "react";
 
 function App() {
-  const temp:Form[] = []
-  const [expenses,setExpenses] = useState(temp);
+  const [expenses,setExpenses] = useState<Form[]>([]);
 
   const onDelete = (index:number) => {
     setExpenses([...expenses.slice(0,index),...expenses.slice(index+1)]);
