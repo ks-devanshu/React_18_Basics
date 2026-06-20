@@ -6,7 +6,7 @@ interface NavigationBarProps {
     switchTheme: () => void
 }
 
-export default function NavigationBar( {theme, switchTheme} : NavigationBarProps ) {
+function NavigationBar( {theme, switchTheme} : NavigationBarProps ) {
     return (
         <div className='navigation-bar'>
             <img className='icon' src="/icon.webp" alt="icon" />
@@ -22,3 +22,5 @@ export default function NavigationBar( {theme, switchTheme} : NavigationBarProps
         </div>
     )
 }
+
+export default NavigationBar;

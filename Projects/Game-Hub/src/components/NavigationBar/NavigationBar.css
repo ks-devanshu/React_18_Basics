@@ -1,15 +1,10 @@
-* {
-  box-sizing: border-box;
-  font-size: 1.2rem;
-}
-
 .navigation-bar{
   padding: 1vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 10vh;
-  margin: 1vh;
+  margin: 2vh;
 }
 
 .icon {
@@ -27,7 +22,7 @@
   flex: 1 0 auto;
   justify-content: flex-start;
   align-items: center;
-  margin: 0 1vw;
+  margin: 0 2vw;
   border: solid gainsboro;
   border-width: .2rem;
   border-radius: 3rem;
