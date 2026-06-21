@@ -2,11 +2,10 @@ import { CiSearch } from "react-icons/ci";
 import './NavigationBar.css'
 
 interface NavigationBarProps {
-    theme: boolean,
     switchTheme: () => void
 }
 
-function NavigationBar( {theme, switchTheme} : NavigationBarProps ) {
+function NavigationBar( {switchTheme} : NavigationBarProps ) {
     return (
         <div className='navigation-bar'>
             <img className='icon' src="/icon.webp" alt="icon" />
@@ -17,7 +16,7 @@ function NavigationBar( {theme, switchTheme} : NavigationBarProps ) {
             
             <div className="form-switch">
                 <input type="checkbox" onChange={switchTheme} className='form-check-input theme-switch theme-switch-input' id="theme-selector" />
-                <label className='form-check-label theme-label theme-switch' htmlFor="theme-selector">{theme ? 'Light' : 'Dark'} Mode</label>
+                <label className='form-check-label theme-label theme-switch' htmlFor="theme-selector">Dark Mode</label>
             </div>
         </div>
     )

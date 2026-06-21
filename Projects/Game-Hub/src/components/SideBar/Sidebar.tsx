@@ -1,22 +1,16 @@
 import './Sidebar.css'
-
-type genre = {
-  id: number,
-  label: string,
-  src: string
-}
+import { genres } from '../TypeGameData/Game'
 
 interface SideBarProps {
-    genres: genre[],
-    onSelection: (id:number) => void
+    onGenreSelection: (genre:string) => void
 }
 
-function SideBar({genres, onSelection} : SideBarProps) {
+function SideBar({onGenreSelection} : SideBarProps) {
     return (
         <div className="side-bar">
             <h3 className="heading-sidebar">Genres</h3>
             <ul className="genre-list">
-            {genres.map( (each) => <li key={each.id} className="genre-list-item" onClick={()=> {onSelection(each.id)}} ><img className='genre-list-icon' src={each.src} alt={each.label} /><a className='genre-list-item-a'>{each.label}</a></li> )}
+            {genres.sort().map( (genre) => <li key={genre} className="genre-list-item" onClick={()=> {onGenreSelection(genre)}} ><img className='genre-list-icon' src='public/genre-icons/all-games.png' alt={genre} /><a className='genre-list-item-a'>{genre[0].toUpperCase()+genre.slice(1)}</a></li> )}
             </ul>
         </div>
     )

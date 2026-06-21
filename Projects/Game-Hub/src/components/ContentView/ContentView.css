@@ -1,0 +1,63 @@
+.content-view-heading-dropdown {
+    margin: 0 2rem;
+}
+
+.heading-content {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.dropdown-filter {
+    border-radius: .3rem;
+}
+
+.dropdown-filter-platform, .dropdown-filter-order {
+    background-color: gainsboro;
+    font-weight: bold;
+    margin: 0 2rem 0 0;
+}
+
+.dropdown-filter-platform:hover, .dropdown-filter-order:hover {
+    background-color: black;
+    color: white;
+}
+
+.card-style {
+    height: 20rem;
+    width: 20rem;
+    margin: 2rem 1rem 0 0;
+    padding: 1rem;
+    justify-content: space-between;
+    background: gainsboro;
+    box-shadow: 20px 20px 20px 0;
+}
+
+.card-img-style {
+    align-self: center;
+}
+
+.card-title-style {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 1rem 0;
+}
+
+.card-btn-style {
+    margin-bottom: 0;
+    background: rgb(108, 108, 108);
+    border: none;
+}
+.card-btn-style:hover {
+    background: white;
+    color: black;
+}
+
+.content-view-games {
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+}
+
+.content-view-games-desc {
+    display: flex;
+    flex-direction: column;
+}

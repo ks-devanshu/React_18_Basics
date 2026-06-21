@@ -1,55 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import type { Game } from './components/TypeGameData/Game'
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import SideBar from "./components/SideBar/Sidebar";
+import ContentView from "./components/ContentView/ContentView";
 import './App.css'
 
-type genre = {
-  id: number,
-  label: string,
-  src: string
-}
-
-const genres:genre[] = [
-  { id:1, label:'Action',src:'public/genre-icons/action.png'},
-  { id:2, label:'Adventure',src:'public/genre-icons/adventure.png'},
-  { id:3, label:'Android',src:'public/genre-icons/android.png'},
-  { id:4, label:'Anime',src:'public/genre-icons/anime.png'},
-  { id:5, label:'Classics',src:'public/genre-icons/classics.png'},
-  { id:6, label:'Emulators',src:'public/genre-icons/emulators.png'},
-  { id:7, label:'Fighting',src:'public/genre-icons/fighting.png'},
-  { id:8, label:'Flight',src:'public/genre-icons/flight.png'},
-  { id:9, label:'FPS',src:'public/genre-icons/fps.png'},
-  { id:10, label:'Horror',src:'public/genre-icons/horror.png'},
-  { id:11, label:'Hypervisor',src:'public/genre-icons/hypervisor.png'},
-  { id:12, label:'Indie',src:'public/genre-icons/indie.png'},
-  { id:13, label:'Open World',src:'public/genre-icons/openworld.png'},
-  { id:14, label:'Racing',src:'public/genre-icons/racing.png'},
-  { id:15, label:'RPG',src:'public/genre-icons/rpg.png'},
-  { id:16, label:'Simulation',src:'public/genre-icons/simulation.png'},
-  { id:17, label:'Sports',src:'public/genre-icons/sports.png'},
-  { id:18, label:'Strategy',src:'public/genre-icons/strategy.png'},
-  { id:19, label:'Survival',src:'public/genre-icons/survival.png'},
-];
-
 function App() {
+
+  const [games, setGames] = useState<Game[]>([]);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const controller = new AbortController();
+    axios.get('https://www.freetogame.com/api/games', {signal:controller.signal})
+    .then((res) => {setGames(res.data)})
+    .catch( (err) => {setError(err.message)} );
+
+    return () => {controller.abort()};
+  }, []);
   
-  let [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(false);
   const switchTheme = () => {
-    document.body.style.background = theme ? "white" : "rgba(34, 33, 33, 0.94)";
-    document.body.style.color = theme ? "black" : "white";
+    if (!theme) {
+      document.body.style.backgroundColor = 'black';
+      document.body.style.color = 'white';
+    }
+    else {
+      document.body.style.backgroundColor = 'white';
+      document.body.style.color = 'black';
+    }
+
     setTheme(!theme);
   }
 
-  let [selectedGenre, setSelectedGenre] = useState(0);
-  const changeSelection = (id:number) => {
-    setSelectedGenre(id);
+  let [selectedGenre, setSelectedGenre] = useState('');
+  const genreSelection = (genre:string) => {
+    setSelectedGenre(genre);
   };
 
 
   return (
     <>
-    <NavigationBar theme={theme} switchTheme={switchTheme}></NavigationBar>
-    <SideBar genres={genres} onSelection={changeSelection} ></SideBar>
+      <NavigationBar switchTheme={switchTheme}></NavigationBar>
+      <div className="home-layout">
+      <div className="home-layout-sidebar">
+      <SideBar onGenreSelection={genreSelection} ></SideBar>
+      </div>
+      <ContentView games={games}></ContentView>
+      </div>
     </>
   )
 }
