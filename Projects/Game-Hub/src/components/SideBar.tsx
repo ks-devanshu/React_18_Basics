@@ -6,7 +6,7 @@ const genres:string[] = [
 
 function SideBar() {
     return (
-    <div className="hidden lg:block mt-10 ml-5 w-90">
+    <div className="hidden lg:block mt-10 ml-5 w-90 dark:text-white">
         <h3 className="text-5xl font-bold">Genres</h3>
         <div className="text-xl m-2 mt-6 max-w-max">
             <ul>
