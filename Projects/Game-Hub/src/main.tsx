@@ -6,7 +6,8 @@ import 'flowbite'
 import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  // strict mode disabled for checking loading functionality
+  // <StrictMode>
       <App />
-  </StrictMode>,
+  // </StrictMode>,
 )
