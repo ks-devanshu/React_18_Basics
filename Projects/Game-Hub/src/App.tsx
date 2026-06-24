@@ -65,6 +65,8 @@ function App() {
     return () => { abort() }
   }, [] )
 
+  console.log(error);
+
   return (
     <>
     <div data-theme={theme} className='dark:bg-gray-800 bg-mist-50'>

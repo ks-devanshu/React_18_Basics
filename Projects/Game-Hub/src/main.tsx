@@ -7,7 +7,7 @@ import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
   // strict mode disabled for checking loading functionality
-  // <StrictMode>
+  <StrictMode>
       <App />
-  // </StrictMode>,
+  </StrictMode>,
 )
